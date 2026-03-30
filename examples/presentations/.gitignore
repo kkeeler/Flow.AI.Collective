@@ -1,0 +1,22 @@
+# Generated decks and build artifacts (keep folder only)
+presentations/*
+!presentations/.gitkeep
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Environment / secrets
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
