@@ -4,6 +4,45 @@ Thanks for helping the collective stay useful, honest, and easy to follow. This 
 
 ---
 
+## GitHub workflow: fork and pull request
+
+We use the **standard GitHub fork workflow**. You do not need direct write access to the upstream repository to contribute.
+
+1. **Fork** the upstream repository on GitHub (your account gets a copy under `github.com/<you>/flow.ai.collective` or similar).
+2. **Clone your fork** locally and enter the repo:
+   ```bash
+   git clone https://github.com/<your-username>/<fork-name>.git
+   cd <fork-name>
+   ```
+3. **Add the upstream remote** (the canonical collective repo) so you can stay in sync:
+   ```bash
+   git remote add upstream https://github.com/<upstream-org-or-user>/<repo-name>.git
+   ```
+   Use `git remote -v` to confirm `origin` points at your fork and `upstream` at the main repo.
+4. **Sync before you branch** (replace `main` if the default branch has another name):
+   ```bash
+   git fetch upstream
+   git checkout main
+   git merge upstream/main
+   ```
+   Alternatively, use **GitHub’s “Sync fork”** on your fork, then `git pull origin main`.
+5. **Create a branch** for your change:
+   ```bash
+   git checkout -b feat/short-description
+   ```
+6. **Commit** using [Conventional Commits](#commits-conventional-commits) (see below).
+7. **Push to your fork**:
+   ```bash
+   git push -u origin feat/short-description
+   ```
+8. On GitHub, open a **pull request** from your fork’s branch into the **upstream** default branch. Fill in the PR template and link any related issue.
+
+**Keeping a long-running fork updated:** repeat step 4 (fetch/merge `upstream/main` into your local `main`, or rebase your topic branch onto `upstream/main`) before opening or updating a PR so reviews see a clean diff.
+
+**Maintainers** with write access to the upstream repo may push a branch there and open a PR without a fork; the same commit message and review expectations still apply.
+
+---
+
 ## Commits: Conventional Commits
 
 Use [Conventional Commits](https://www.conventionalcommits.org/) so history stays scannable:
