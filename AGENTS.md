@@ -15,20 +15,38 @@ This file is for **any AI agent** (or human) using this monorepo. It defines **w
 
 ## Choosing an example (required)
 
-Always treat **one example directory** as your working context so paths and Cursor config resolve:
+Always treat **one example directory** as your starting template so paths and config resolve:
 
 - **Presentations (PowerPoint pipeline):** `examples/presentations/` — read `AGENTS.md` and `.cursor/skills/ppt-creator/SKILL.md`  
 - **Web (Next.js templates):** `examples/web/<site-name>/` — read that folder’s `AGENTS.md` and `examples/web/.cursor/skills/web-developer/SKILL.md`
 
-Open or `cd` into that folder before creating files, running installs, or editing skills.
+---
+
+## Starting a new project from an example
+
+When running from the **repository root** and creating something new based on an example:
+
+1. **Copy** the example folder into `build/`:
+   ```bash
+   cp -r examples/<category>/<example-name> build/<project-name>
+   ```
+   For example: `cp -r examples/presentations build/my-keynote`
+
+2. **Set `build/<project-name>/` as your working directory** (`cd build/<project-name>/`) before creating files, running installs, or editing anything.
+
+3. **Read the copied example’s `AGENTS.md`** and any skills/config inside the copy — work entirely within the `build/` copy.
+
+4. All generated output stays in the `build/` copy. Do **not** modify the original under `examples/`.
+
+This keeps the `examples/` folder clean as a read-only template library while giving agents a full working copy with all config, skills, and structure intact.
 
 ---
 
-## The `build/` folder (scratch only)
+## The `build/` folder
 
-- **Use `build/`** for disposable output: experiments, temporary clones, zip exports, scratch scripts, anything you do not want in version control.  
+- **Use `build/`** as the working directory for new projects created from examples (see above) and for any other disposable output: experiments, scratch scripts, zip exports, etc.  
 - **Do not commit** contents of `build/`. The repository root `.gitignore` ignores `build/*` except `build/.gitkeep`.  
-- **Do not** put canonical deliverables here. Example outputs belong under the relevant `examples/...` path per that example’s README (e.g. presentation `.pptx` under the presentations example’s documented output folder).
+- When a project in `build/` is ready to be promoted to a permanent example, follow the "Creating a new example" checklist below to move it into `examples/`.
 
 ---
 
@@ -52,7 +70,8 @@ Collective-wide images and media live in **`assets/`**. Keep example-specific me
 
 ## Summary
 
-- [ ] Correct example folder is the active workspace  
-- [ ] Example `AGENTS.md` + skills read before implementing  
-- [ ] `build/` used only for scratch; nothing committed there  
-- [ ] Deliverables live under `examples/...` per that example’s docs  
+- [ ] Example copied from `examples/` into `build/<project-name>/`  
+- [ ] `build/<project-name>/` is the active working directory  
+- [ ] Copied example’s `AGENTS.md` + skills read before implementing  
+- [ ] Original `examples/` folder left unmodified  
+- [ ] Nothing in `build/` committed to version control  
