@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "Bash(source venv/Scripts/activate)",
+      "Bash(python build_pptx.py)",
+      "mcp__playwright__browser_click",
+      "Bash(python -c \"import playwright; import pptx; import lxml; print\\('All packages available'\\)\")",
+      "Bash(python capture_slides.py)",
+      "mcp__playwright__browser_select_option",
+      "Bash(python -m venv venv)",
+      "Bash(venv/Scripts/python.exe -m pip install --quiet playwright python-pptx lxml Pillow)",
+      "Bash(venv/Scripts/python.exe -m playwright install chromium)",
+      "Bash(../../venv/Scripts/python.exe capture_slides.py)",
+      "Bash(../../venv/Scripts/python.exe build_pptx.py)",
+      "Bash(../../venv/Scripts/python.exe build_native_pptx.py)",
+      "Bash(../../venv/Scripts/python.exe -c ':*)"
+    ]
+  }
+}

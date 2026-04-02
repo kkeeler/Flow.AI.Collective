@@ -1,3 +1,4 @@
 # Local scratch — keep folder in git, not its contents
 build/*
 !build/.gitkeep
+.playwright-mcp/*
